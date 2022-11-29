@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <title>Upload Files</title>
+</head>
+<body>
+  <div id="upload-file-card">
+    <div id="top-text">
+      <p id="top-text-1">UPLOAD FILES</p>
+      <p id="top-text-2">Upload documents you want to share with your team.</p>
+    </div>
+    <div id="file-uploader">
+      <img src="/cloud-small.png" id="cloud-small"></img>
+      <p>Drag & Drop your files here</p>
+      <p>OR</p>
+      <input type="file" accept="image/*" id="hidden-file-btn" hidden onchange="loadFile(event)">
+      <label for="hidden-file-btn" id="actual-btn">Browse Files</label>
+      <script>
+        let loadFile = (event) => {
+          console.log(event)
+          let file = document.getElementById('output')
+          file.src = URL.createObjectURL(event.target.files[0])
+        }
+      </script>
+    </div>
+    <div id="uploaded-files">
+      <p id="uploaded-files-text">Uploaded files</p>
+      <p id="output" width="50%"></p>
+      <p>UPLOADED FILE GOES HERE</p>
+      <p>UPLOADED FILE GOES HERE</p>
+      <p>UPLOADED FILE GOES HERE</p>
+    </div>
+  </div>
+</body>
+</html>
